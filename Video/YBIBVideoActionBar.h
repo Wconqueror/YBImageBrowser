@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)yb_videoActionBar:(YBIBVideoActionBar *)actionBar changeValue:(float)value;
 
+@optional
+
+- (void)yb_videoActionBar:(YBIBVideoActionBar *)actionBar clickDownloadButton:(UIButton *)downloadButton;
+
+-(void)yb_videoActionBar:(YBIBVideoActionBar *)actionBar clickDeleteButton:(UIButton *)deleteButton;
+
 @end
 
 @interface YBIBVideoActionBar : UIView

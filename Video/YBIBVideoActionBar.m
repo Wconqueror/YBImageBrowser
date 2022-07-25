@@ -17,8 +17,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setThumbImage:YBIBIconManager.sharedManager.videoDragCircleImage() forState:UIControlStateNormal];
-        self.minimumTrackTintColor = UIColor.whiteColor;
-        self.maximumTrackTintColor = [UIColor.whiteColor colorWithAlphaComponent:0.5];
+        self.minimumTrackTintColor = kRGBA(20, 104, 255, 1);
+        self.maximumTrackTintColor = kRGBA(226, 237, 255, 0.1);
         self.layer.shadowColor = UIColor.darkGrayColor.CGColor;
         self.layer.shadowOffset = CGSizeMake(0, 1);
         self.layer.shadowOpacity = 1;
@@ -54,6 +54,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         _dragging = NO;
+        self.backgroundColor = kRGBA(216, 216, 216,0.1);
+        self.layer.cornerRadius = 12;
+        self.layer.masksToBounds = YES;
+        
         [self addSubview:self.playButton];
         [self addSubview:self.preTimeLabel];
         [self addSubview:self.sufTimeLabel];
@@ -77,7 +81,7 @@
 #pragma mark - public
 
 + (CGFloat)defaultHeight {
-    return 44;
+    return 88;
 }
 
 - (void)setMaxValue:(float)value {

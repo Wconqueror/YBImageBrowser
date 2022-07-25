@@ -18,10 +18,19 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^YBIBVideoSingleTouchBlock)(YBIBVideoData *videoData);
 
 
+@protocol selectIndexDelegate <NSObject>
+
+-(void)selectIndex:(NSIndexPath *)indexPath isDownload:(BOOL)isDownload;
+
+@end
+
+
 /**
  图片数据类，承担配置数据和处理数据的责任
  */
 @interface YBIBVideoData : NSObject <YBIBDataProtocol>
+
+@property (nonatomic,weak) id<selectIndexDelegate> selectDelegate;
 
 /// 视频 URL
 @property (nonatomic, copy, nullable) NSURL *videoURL;
@@ -58,6 +67,12 @@ typedef void (^YBIBVideoSingleTouchBlock)(YBIBVideoData *videoData);
 
 /// 是否要隐藏播放时的叉叉（取消）按钮
 @property (nonatomic, assign) BOOL shouldHideForkButton;
+
+/// 用来记录collectionView 的secion 和 row
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+/// 名称
+@property (nonatomic, copy) NSString *title;
 
 @end
 

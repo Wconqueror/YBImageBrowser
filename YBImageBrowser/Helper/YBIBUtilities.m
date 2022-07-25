@@ -123,7 +123,7 @@ UIEdgeInsets YBIBPaddingByBrowserOrientation(UIDeviceOrientation orientation) {
             padding.bottom = YBIBStatusbarHeight();
             padding.top = barOrientation == UIDeviceOrientationPortrait ? YBIBSafeAreaBottomHeight() : 0;
         }
-        padding.left = padding.right = UIDeviceOrientationIsLandscape(barOrientation) ? YBIBSafeAreaBottomHeight() : 0 ;
+        padding.left = padding.right = UIDeviceOrientationIsLandscape(barOrientation) ? YBIBSafeAreaBottomHeight() : 30 ;
     }
     return padding;
 }

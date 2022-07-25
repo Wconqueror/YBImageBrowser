@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) UIButton *cancelButton;
 
+@property (nonatomic, strong) NSString *content;
+
+-(void)hideDownloadBtn:(BOOL)isHide;
+
 + (CGFloat)defaultHeight;
 
 @end

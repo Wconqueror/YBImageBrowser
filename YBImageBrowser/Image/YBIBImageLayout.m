@@ -14,9 +14,9 @@
 
 - (instancetype)init {
     self = [super init];
-    if (self) {
+    if (self){
         _verticalFillType = YBIBImageFillTypeCompletely;
-        _horizontalFillType = YBIBImageFillTypeFullWidth;
+        _horizontalFillType = YBIBImageFillTypeCompletely;
         _zoomScaleSurplus = 1.5;
     }
     return self;
@@ -25,7 +25,8 @@
 #pragma mark - private
 
 - (YBIBImageFillType)fillTypeByOrientation:(UIDeviceOrientation)orientation {
-    return UIDeviceOrientationIsLandscape(orientation) ? self.horizontalFillType : self.verticalFillType;
+//    return UIDeviceOrientationIsLandscape(orientation) ? self.horizontalFillType : self.verticalFillType;
+    return YBIBImageFillTypeCompletely;
 }
 
 #pragma mark - <YBIBImageLayout>

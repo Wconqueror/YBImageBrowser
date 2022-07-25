@@ -84,7 +84,7 @@ NSBundle *YBIBVideoBundle(void) {
     static NSBundle *bundle = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSBundle *_bundle = [NSBundle bundleForClass:NSClassFromString(@"YBImageBrowser")];
+        NSBundle *_bundle = [NSBundle bundleForClass:NSClassFromString(@"YBImageBrowserVideo")];
         NSString *path = [_bundle pathForResource:@"YBImageBrowserVideo" ofType:@"bundle"];
         bundle = [NSBundle bundleWithPath:path];
     });
@@ -123,13 +123,22 @@ NSBundle *YBIBVideoBundle(void) {
             return [UIImage ybib_imageNamed:@"ybib_pause" bundle:YBIBVideoBundle()];
         };
         _videoCancelImage = ^UIImage * _Nullable{
-            return [UIImage ybib_imageNamed:@"ybib_cancel" bundle:YBIBVideoBundle()];
+            return [UIImage ybib_imageNamed:@"ico_white" bundle:YBIBVideoBundle()];
         };
         _videoBigPlayImage = ^UIImage * _Nullable{
             return [UIImage ybib_imageNamed:@"ybib_bigPlay" bundle:YBIBVideoBundle()];
         };
         _videoDragCircleImage = ^UIImage * _Nullable{
             return [UIImage ybib_imageNamed:@"ybib_circlePoint" bundle:YBIBVideoBundle()];
+        };
+        _videoDownloadImage = ^UIImage *_Nullable{
+            return [UIImage ybib_imageNamed:@"video_download" bundle:YBIBVideoBundle()];
+        };
+        _videoShareImage = ^UIImage *_Nullable{
+            return [UIImage ybib_imageNamed:@"video_share" bundle:YBIBVideoBundle()];
+        };
+        _videoDeleteImage = ^UIImage *_Nullable{
+            return [UIImage ybib_imageNamed:@"video_delete" bundle:YBIBVideoBundle()];
         };
     }
     return self;

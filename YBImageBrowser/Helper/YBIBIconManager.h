@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
 /// 获取图片闭包
 typedef UIImage * _Nullable (^YBIBIconBlock)(void);
 
@@ -57,6 +56,13 @@ typedef UIImage * _Nullable (^YBIBIconBlock)(void);
 @property (nonatomic, copy) YBIBIconBlock videoBigPlayImage;
 /// 视频-拖动圆点
 @property (nonatomic, copy) YBIBIconBlock videoDragCircleImage;
+///下载
+@property (nonatomic, copy) YBIBIconBlock videoDownloadImage;
+///分享
+@property (nonatomic, copy) YBIBIconBlock videoShareImage;
+///删除
+@property (nonatomic, copy) YBIBIconBlock videoDeleteImage;
+
 
 @end
 

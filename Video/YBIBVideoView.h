@@ -64,6 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)preparPlay;
 
+- (void)setVideoTitle:(NSString *)title;
+
 @property (nonatomic, assign) BOOL needAutoPlay;
 
 @property (nonatomic, assign) NSUInteger autoPlayCount;

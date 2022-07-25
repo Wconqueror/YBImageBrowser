@@ -28,6 +28,7 @@ extern CGImageRef YYCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeFor
     self = [super init];
     if (self) {
         [self initValue];
+        [self registNotifications];
     }
     return self;
 }
@@ -41,6 +42,19 @@ extern CGImageRef YYCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeFor
     _autoPlayCount = 0;
     _shouldHideForkButton = NO;
     _allowSaveToPhotoAlbum = YES;
+}
+
+-(void)registNotifications{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteNotification:) name:kDeleteVideoNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadNotification:) name:kDownloadVideoNotification object:nil];
+}
+
+-(void)deleteNotification:(NSNotification *)notification{
+    [self.selectDelegate selectIndex:self.indexPath isDownload:NO];
+}
+
+-(void)downloadNotification:(NSNotification *)notification{
+    [self.selectDelegate selectIndex:self.indexPath isDownload:YES];
 }
 
 #pragma mark - load data
@@ -142,7 +156,7 @@ extern CGImageRef YYCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeFor
 - (CGRect)yb_imageViewFrameWithContainerSize:(CGSize)containerSize imageSize:(CGSize)imageSize orientation:(UIDeviceOrientation)orientation {
     if (containerSize.width <= 0 || containerSize.height <= 0 || imageSize.width <= 0 || imageSize.height <= 0) return CGRectZero;
     CGFloat x = 0, y = 0, width = 0, height = 0;
-    if (imageSize.width / imageSize.height >= containerSize.width / containerSize.height) {
+    if (imageSize.width / imageSize.height > containerSize.width / containerSize.height) {
         width = containerSize.width;
         height = containerSize.width * (imageSize.height / imageSize.width);
         x = 0;
@@ -153,6 +167,10 @@ extern CGImageRef YYCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeFor
         x = (containerSize.width - width) / 2.0;
         y = 0;
     }
+    
+    NSLog(@"横屏还是竖屏:%ld",(long)orientation);
+    NSLog(@"图片宽高:%f,%f",imageSize.width,imageSize.height);
+    NSLog(@"容器宽高:%f,%f",containerSize.width,containerSize.height);
     return CGRectMake(x, y, width, height);
 }
 
@@ -292,5 +310,12 @@ didFinishDownloadingToURL:(NSURL *)location {
     // Stop sending data to the '_delegate' if it is transiting.
     return self.yb_isHideTransitioning() ? nil : _delegate;
 }
+
+//-(void)setTitle:(NSString *)title{
+//    _title = title;
+//    NSString *str = [title componentsSeparatedByString:@"/"].lastObject;
+//    str = [str componentsSeparatedByString:@"."].firstObject;
+//    NSLog(@"时间是:%@",str);
+//}
 
 @end

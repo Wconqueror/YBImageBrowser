@@ -162,6 +162,7 @@
     [self.videoView updateLayoutWithExpectOrientation:orientation containerSize:containerSize];
     self.videoView.autoPlayCount = data.autoPlayCount;
     self.videoView.topBar.cancelButton.hidden = data.shouldHideForkButton;
+    [self.videoView setVideoTitle:data.title];
 }
 
 - (void)yb_orientationWillChangeWithExpectOrientation:(UIDeviceOrientation)orientation {
@@ -192,7 +193,9 @@
 
 #pragma mark - <YBIBVideoDataDelegate>
 
-- (void)yb_startLoadingAVAssetFromPHAssetForData:(YBIBVideoData *)data {}
+- (void)yb_startLoadingAVAssetFromPHAssetForData:(YBIBVideoData *)data {
+    
+}
 
 - (void)yb_finishLoadingAVAssetFromPHAssetForData:(YBIBVideoData *)data {}
 
@@ -259,6 +262,8 @@
     [self.yb_backView ybib_videoPlayingAdd:self];
     [self.yb_auxiliaryViewHandler() yb_hideLoadingWithContainer:self];
     [self hideToolViews:YES];
+    
+    YBIBVideoData *data = (YBIBVideoData *)self.yb_cellData;
 }
 
 - (void)yb_didPlayToEndTimeForVideoView:(YBIBVideoView *)view {
@@ -297,7 +302,9 @@
 - (void)yb_cancelledForVideoView:(YBIBVideoView *)view {
     if (self.yb_isRotating()) return;
     
+    NSLog(@"取消取消取消");
     [self hideBrowser];
+    
 }
 
 - (CGSize)yb_containerSizeForVideoView:(YBIBVideoView *)view {

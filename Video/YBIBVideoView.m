@@ -10,12 +10,14 @@
 #import "YBIBVideoView.h"
 #import "YBIBVideoActionBar.h"
 #import "YBIBVideoTopBar.h"
+#import "YBIBVideoBottomBar.h"
 #import "YBIBUtilities.h"
 #import "YBIBIconManager.h"
 
 @interface YBIBVideoView () <YBIBVideoActionBarDelegate>
 @property (nonatomic, strong) YBIBVideoTopBar *topBar;
 @property (nonatomic, strong) YBIBVideoActionBar *actionBar;
+@property (nonatomic, strong) YBIBVideoBottomBar *bottomBar;
 @property (nonatomic, strong) UIButton *playButton;
 @end
 
@@ -37,11 +39,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initValue];
-        self.backgroundColor = UIColor.clearColor;
-        
+        self.backgroundColor = UIColor.blackColor;
         [self addSubview:self.thumbImageView];
         [self addSubview:self.topBar];
         [self addSubview:self.actionBar];
+        [self addSubview:self.bottomBar];
         [self addSubview:self.playButton];
         [self addObserverForSystem];
         
@@ -65,8 +67,16 @@
 - (void)updateLayoutWithExpectOrientation:(UIDeviceOrientation)orientation containerSize:(CGSize)containerSize {
     UIEdgeInsets padding = YBIBPaddingByBrowserOrientation(orientation);
     CGFloat width = containerSize.width - padding.left - padding.right, height = containerSize.height;
-    self.topBar.frame = CGRectMake(padding.left, padding.top, width, [YBIBVideoTopBar defaultHeight]);
-    self.actionBar.frame = CGRectMake(padding.left, height - [YBIBVideoActionBar defaultHeight] - padding.bottom - 10, width, [YBIBVideoActionBar defaultHeight]);
+    if (orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight) {
+        self.actionBar.frame = CGRectMake(padding.left, height - [YBIBVideoActionBar defaultHeight] - padding.bottom - 10, width, [YBIBVideoActionBar defaultHeight]);
+        self.topBar.frame = CGRectMake(40, padding.top, containerSize.width, [YBIBVideoTopBar defaultHeight]);
+        [self.topBar hideDownloadBtn:NO];
+    }else{
+        [self.topBar hideDownloadBtn:YES];
+        self.actionBar.frame = CGRectMake(padding.left, height - [YBIBVideoActionBar defaultHeight] - padding.bottom - 100, width, [YBIBVideoActionBar defaultHeight]);
+        self.topBar.frame = CGRectMake(0, padding.top, containerSize.width, [YBIBVideoTopBar defaultHeight]);
+    }
+    self.bottomBar.frame = CGRectMake(0, self.actionBar.height + self.actionBar.y + 40, containerSize.width, [YBIBVideoBottomBar defaultHeight]);
     self.playButton.center = CGPointMake(containerSize.width / 2.0, containerSize.height / 2.0);
     _playerLayer.frame = (CGRect){CGPointZero, containerSize};
 }
@@ -87,9 +97,11 @@
     if (hide) {
         self.actionBar.hidden = YES;
         self.topBar.hidden = YES;
+        self.bottomBar.hidden = YES;
     } else if (self.isPlaying) {
         self.actionBar.hidden = NO;
         self.topBar.hidden = NO;
+        self.bottomBar.hidden = NO;
     }
 }
 
@@ -142,7 +154,7 @@
         
         self.topBar.hidden = NO;
         self.actionBar.hidden = NO;
-        
+        self.bottomBar.hidden = NO;
         [self.delegate yb_startPlayForVideoView:self];
     }
 }
@@ -152,6 +164,7 @@
     [self.actionBar setCurrentValue:0];
     self.actionBar.hidden = YES;
     self.topBar.hidden = YES;
+    self.bottomBar.hidden = YES;
     
     _playing = NO;
     
@@ -233,7 +246,7 @@
     
     _preparingPlay = NO;
     
-    switch (_playerItem.status) {
+    switch (_playerItem.status){
         case AVPlayerItemStatusReadyToPlay: {
             // Delay to update UI.
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -306,6 +319,7 @@
     if (self.isPlaying) {
         self.actionBar.hidden = !self.actionBar.isHidden;
         self.topBar.hidden = !self.topBar.isHidden;
+        self.bottomBar.hidden = !self.bottomBar.hidden;
     } else {
         [self.delegate yb_respondsToTapGestureForVideoView:self];
     }
@@ -367,6 +381,14 @@
     return _actionBar;
 }
 
+-(YBIBVideoBottomBar *)bottomBar{
+    if (!_bottomBar) {
+        _bottomBar = [[YBIBVideoBottomBar alloc] init];
+        _bottomBar.hidden = YES;
+    }
+    return  _bottomBar;
+}
+
 - (UIButton *)playButton {
     if (!_playButton) {
         _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -390,5 +412,20 @@
     }
     return _thumbImageView;
 }
+
+-(void)setVideoTitle:(NSString *)title{
+    NSString *str = [title componentsSeparatedByString:@"/"].lastObject;
+    str = [str componentsSeparatedByString:@"."].firstObject;
+    
+    NSDateFormatter *f1 = [[NSDateFormatter alloc]init];
+    [f1 setDateFormat:@"yyyyMMddHHmmss"];
+    NSDate *date = [f1 dateFromString:str];
+    
+    NSDateFormatter *f2 = [[NSDateFormatter alloc]init];
+    [f2 setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *s = [f2 stringFromDate:date];
+    [self.topBar setContent:s];
+}
+
 
 @end
