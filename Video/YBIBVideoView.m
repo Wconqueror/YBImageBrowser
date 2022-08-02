@@ -76,7 +76,7 @@
         self.actionBar.frame = CGRectMake(padding.left, height - [YBIBVideoActionBar defaultHeight] - padding.bottom - 100, width, [YBIBVideoActionBar defaultHeight]);
         self.topBar.frame = CGRectMake(0, padding.top, containerSize.width, [YBIBVideoTopBar defaultHeight]);
     }
-    self.bottomBar.frame = CGRectMake(0, self.actionBar.height + self.actionBar.y + 40, containerSize.width, [YBIBVideoBottomBar defaultHeight]);
+    self.bottomBar.frame = CGRectMake(0, self.actionBar.bounds.size.height + self.actionBar.y + 40, containerSize.width, [YBIBVideoBottomBar defaultHeight]);
     self.playButton.center = CGPointMake(containerSize.width / 2.0, containerSize.height / 2.0);
     _playerLayer.frame = (CGRect){CGPointZero, containerSize};
 }

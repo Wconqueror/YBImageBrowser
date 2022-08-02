@@ -70,6 +70,7 @@
 		23F26AD222D7208700C27C21 /* YBIBVideoActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F26AD122D7208700C27C21 /* YBIBVideoActionBar.m */; };
 		23F5A00D23161D51003F0FAE /* YBIBDefaultWebImageMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F5A00C23161D51003F0FAE /* YBIBDefaultWebImageMediator.m */; };
 		23FF103622F6B6FC0091331F /* TestFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FF103522F6B6FC0091331F /* TestFController.m */; };
+		E327F4472899267700924EFB /* YBIBImageBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E327F4462899267700924EFB /* YBIBImageBottomBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,8 @@
 		23FF103522F6B6FC0091331F /* TestFController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFController.m; sourceTree = "<group>"; };
 		97542AA3FE46C41411B15C5D /* Pods_YBImageBrowserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YBImageBrowserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7455F1D491BFCA198544CA1 /* Pods-YBImageBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBImageBrowserDemo.debug.xcconfig"; path = "Target Support Files/Pods-YBImageBrowserDemo/Pods-YBImageBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E327F4452899267700924EFB /* YBIBImageBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBIBImageBottomBar.h; sourceTree = "<group>"; };
+		E327F4462899267700924EFB /* YBIBImageBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBIBImageBottomBar.m; sourceTree = "<group>"; };
 		F2A1E10DD2C568E5493980E0 /* Pods-YBImageBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBImageBrowserDemo.release.xcconfig"; path = "Target Support Files/Pods-YBImageBrowserDemo/Pods-YBImageBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -322,15 +325,17 @@
 		23ABA28D22D0BAB600535F6A /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				23ABA29422D0BAB600535F6A /* YBIBImageData.h */,
-				23ABA29522D0BAB600535F6A /* YBIBImageData.m */,
-				23ABA29322D0BAB600535F6A /* YBIBImageData+Internal.h */,
-				23ABA29122D0BAB600535F6A /* YBIBImageCell.h */,
-				23ABA29222D0BAB600535F6A /* YBIBImageCell.m */,
-				23FC590723B05DD800F42054 /* YBIBImageCell+Internal.h */,
+				E327F4452899267700924EFB /* YBIBImageBottomBar.h */,
+				E327F4462899267700924EFB /* YBIBImageBottomBar.m */,
 				23ABA28F22D0BAB600535F6A /* YBIBImageCache.h */,
 				23ABA29022D0BAB600535F6A /* YBIBImageCache.m */,
 				23ABA28E22D0BAB600535F6A /* YBIBImageCache+Internal.h */,
+				23ABA29122D0BAB600535F6A /* YBIBImageCell.h */,
+				23ABA29222D0BAB600535F6A /* YBIBImageCell.m */,
+				23FC590723B05DD800F42054 /* YBIBImageCell+Internal.h */,
+				23ABA29422D0BAB600535F6A /* YBIBImageData.h */,
+				23ABA29522D0BAB600535F6A /* YBIBImageData.m */,
+				23ABA29322D0BAB600535F6A /* YBIBImageData+Internal.h */,
 				23ABA29622D0BAB600535F6A /* YBIBImageLayout.h */,
 				23ABA29722D0BAB600535F6A /* YBIBImageLayout.m */,
 				23ABA29822D0BAB600535F6A /* YBIBImageScrollView.h */,
@@ -754,6 +759,7 @@
 				23556E4322D77F43004178DA /* YBIBContainerView.m in Sources */,
 				23ABA2A722D0BAB700535F6A /* YBIBAuxiliaryViewHandler.m in Sources */,
 				23F26ACF22D7206900C27C21 /* YBIBVideoTopBar.m in Sources */,
+				E327F4472899267700924EFB /* YBIBImageBottomBar.m in Sources */,
 				23B3270F22A768F6008BFF5D /* main.m in Sources */,
 				23ABA2BD22D0BAB700535F6A /* YBImageBrowser.m in Sources */,
 				23CC34ED22DC59190037018B /* TestBController.m in Sources */,
@@ -967,7 +973,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU8H9EQ986;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YBImageBrowserDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = YBImageBrowserDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -987,7 +993,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU8H9EQ986;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YBImageBrowserDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = YBImageBrowserDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
