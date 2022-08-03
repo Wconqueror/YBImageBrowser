@@ -631,6 +631,12 @@ static dispatch_queue_t YBIBImageProcessingQueue(void) {
     }];
 }
 
+- (void)yb_deletePhoto{
+    
+    
+    
+}
+
 #pragma mark - getters & setters
 
 @synthesize delegate = _delegate;

@@ -45,8 +45,8 @@ extern CGImageRef YYCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeFor
 }
 
 -(void)registNotifications{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteNotification:) name:kDeleteVideoNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadNotification:) name:kDownloadVideoNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteNotification:) name:kDeleteVideoNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadNotification:) name:kDownloadVideoNotification object:nil];
 }
 
 -(void)deleteNotification:(NSNotification *)notification{

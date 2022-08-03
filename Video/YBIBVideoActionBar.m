@@ -9,6 +9,7 @@
 #import "YBIBVideoActionBar.h"
 #import "YBIBIconManager.h"
 
+#define RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
 @interface YBVideoBrowseActionSlider : UISlider
 @end
@@ -17,8 +18,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setThumbImage:YBIBIconManager.sharedManager.videoDragCircleImage() forState:UIControlStateNormal];
-        self.minimumTrackTintColor = kRGBA(20, 104, 255, 1);
-        self.maximumTrackTintColor = kRGBA(226, 237, 255, 0.1);
+        self.minimumTrackTintColor = RGBA(20, 104, 255, 1);
+        self.maximumTrackTintColor = RGBA(226, 237, 255, 0.1);
         self.layer.shadowColor = UIColor.darkGrayColor.CGColor;
         self.layer.shadowOffset = CGSizeMake(0, 1);
         self.layer.shadowOpacity = 1;
@@ -54,7 +55,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _dragging = NO;
-        self.backgroundColor = kRGBA(216, 216, 216,0.1);
+        self.backgroundColor = RGBA(216, 216, 216,0.1);
         self.layer.cornerRadius = 12;
         self.layer.masksToBounds = YES;
         

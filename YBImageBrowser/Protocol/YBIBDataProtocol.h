@@ -59,6 +59,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)yb_allowSaveToPhotoAlbum;
 
+/**
+ 删除图片
+ */
+- (void)yb_deletePhoto;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

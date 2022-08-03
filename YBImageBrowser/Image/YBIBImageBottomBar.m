@@ -49,6 +49,7 @@
         [_shareBtn setImage:YBIBIconManager.sharedManager.videoDownloadImage() forState:(UIControlStateNormal)];
         [_shareBtn setTitle:NSLocalizedString(@"分享", nil) forState:(UIControlStateNormal)];
         [_shareBtn setTitleColor:UIColor.whiteColor forState:(UIControlStateNormal)];
+        [_shareBtn addTarget:self action:@selector(shareAction) forControlEvents:(UIControlEventTouchUpInside)];
         _shareBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         _shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 15, 0);
         _shareBtn.titleEdgeInsets = UIEdgeInsetsMake(30, 0, 0,25);
@@ -73,26 +74,38 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    CGFloat width = 100;
-    self.downloadBtn.frame = CGRectMake(30, 0, width, self.bounds.size.height);
+    CGFloat width = 80;
+    CGFloat space = (self.bounds.size.width - width * 2) / 3.0;
+    self.downloadBtn.frame = CGRectMake(space, 0, width, self.bounds.size.height);
     self.shareBtn.frame = CGRectMake(self.bounds.size.width / 2.0 - width / 2.0, 0, width, self.bounds.size.height);
-    self.deleteBtn.frame = CGRectMake(self.bounds.size.width - width - 30, 0, width, self.bounds.size.height);
+    self.deleteBtn.frame = CGRectMake(self.bounds.size.width - width - space, 0, width, self.bounds.size.height);
 }
 
 //删除
 -(void)deleteAction{
-    
+    self.clickOperation(YBIBBottomViewOperationTypeDelete);
 }
 
 //下载
 -(void)downloadAction{
-    
+    self.clickOperation(YBIBBottomViewOperationTypeDownload);
 }
 
+//分享
+-(void)shareAction{
+    self.clickOperation(YBIBBottomViewOperationTypeShare);
+}
+
+-(void)backgroundColorByOrientation:(UIDeviceOrientation)orientation{
+    if (orientation == UIDeviceOrientationPortrait) {
+        self.backgroundColor = UIColor.blackColor;
+    }else{
+        self.backgroundColor = UIColor.clearColor;
+    }
+}
 
 +(CGFloat)defaultHeight{
     return 70;
 }
-
 
 @end

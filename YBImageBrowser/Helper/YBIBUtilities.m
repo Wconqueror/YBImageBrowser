@@ -59,7 +59,7 @@ BOOL YBIBLowMemory(void) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         unsigned long long physicalMemory = [[NSProcessInfo processInfo] physicalMemory];
-        lowMemory = physicalMemory > 0 && physicalMemory < 1024 * 1024 * 1500;
+        lowMemory = physicalMemory > 0 && physicalMemory < 1024 * 1024 * 1500;  //小于1.5G
     });
     return lowMemory;
 }
