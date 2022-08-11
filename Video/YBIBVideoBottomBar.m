@@ -73,10 +73,11 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    CGFloat width = 100;
-    self.downloadBtn.frame = CGRectMake(30, 0, width, self.height);
-    self.shareBtn.frame = CGRectMake(self.width / 2.0 - width / 2.0, 0, width, self.height);
-    self.deleteBtn.frame = CGRectMake(self.width - width - 30, 0, width, self.height);
+    CGFloat width = 80;
+    CGFloat space = (self.bounds.size.width - width * 2) / 3.0;
+    self.downloadBtn.frame = CGRectMake(space, 0, width, self.bounds.size.height);
+    self.shareBtn.frame = CGRectMake(self.bounds.size.width / 2.0 - width / 2.0, 0, width, self.bounds.size.height);
+    self.deleteBtn.frame = CGRectMake(self.bounds.size.width - width - space, 0, width, self.bounds.size.height);
 }
 
 //删除

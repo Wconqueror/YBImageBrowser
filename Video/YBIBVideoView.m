@@ -71,12 +71,14 @@
         self.actionBar.frame = CGRectMake(padding.left, height - [YBIBVideoActionBar defaultHeight] - padding.bottom - 10, width, [YBIBVideoActionBar defaultHeight]);
         self.topBar.frame = CGRectMake(40, padding.top, containerSize.width, [YBIBVideoTopBar defaultHeight]);
         [self.topBar hideDownloadBtn:NO];
+        self.bottomBar.frame = CGRectMake(containerSize.width - 2*padding.right - 150,padding.top, 150, [YBIBVideoBottomBar defaultHeight]);
     }else{
         [self.topBar hideDownloadBtn:YES];
         self.actionBar.frame = CGRectMake(padding.left, height - [YBIBVideoActionBar defaultHeight] - padding.bottom - 100, width, [YBIBVideoActionBar defaultHeight]);
         self.topBar.frame = CGRectMake(0, padding.top, containerSize.width, [YBIBVideoTopBar defaultHeight]);
+        self.bottomBar.frame = CGRectMake(0,containerSize.height - padding.bottom - [YBIBVideoBottomBar defaultHeight], containerSize.width, [YBIBVideoBottomBar defaultHeight]);
     }
-    self.bottomBar.frame = CGRectMake(0, self.actionBar.bounds.size.height + self.actionBar.frame.origin.y + 40, containerSize.width, [YBIBVideoBottomBar defaultHeight]);
+    
     self.playButton.center = CGPointMake(containerSize.width / 2.0, containerSize.height / 2.0);
     _playerLayer.frame = (CGRect){CGPointZero, containerSize};
 }

@@ -71,7 +71,7 @@
 		23F5A00D23161D51003F0FAE /* YBIBDefaultWebImageMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F5A00C23161D51003F0FAE /* YBIBDefaultWebImageMediator.m */; };
 		23FF103622F6B6FC0091331F /* TestFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FF103522F6B6FC0091331F /* TestFController.m */; };
 		E327F4472899267700924EFB /* YBIBImageBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E327F4462899267700924EFB /* YBIBImageBottomBar.m */; };
-		E327F44A289A0CBE00924EFB /* YBIBVideoBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E327F448289A0CBE00924EFB /* YBIBVideoBottomBar.m */; };
+		E3B8AB7C28A38202007CB139 /* YBIBVideoBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B8AB7B28A38202007CB139 /* YBIBVideoBottomBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,8 +225,8 @@
 		B7455F1D491BFCA198544CA1 /* Pods-YBImageBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBImageBrowserDemo.debug.xcconfig"; path = "Target Support Files/Pods-YBImageBrowserDemo/Pods-YBImageBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E327F4452899267700924EFB /* YBIBImageBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBIBImageBottomBar.h; sourceTree = "<group>"; };
 		E327F4462899267700924EFB /* YBIBImageBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBIBImageBottomBar.m; sourceTree = "<group>"; };
-		E327F448289A0CBE00924EFB /* YBIBVideoBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YBIBVideoBottomBar.m; path = ../../vSee/ios/newVsee/newVsee/new_vsee/extensions/Video/YBIBVideoBottomBar.m; sourceTree = "<group>"; };
-		E327F449289A0CBE00924EFB /* YBIBVideoBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YBIBVideoBottomBar.h; path = ../../vSee/ios/newVsee/newVsee/new_vsee/extensions/Video/YBIBVideoBottomBar.h; sourceTree = "<group>"; };
+		E3B8AB7A28A38202007CB139 /* YBIBVideoBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBIBVideoBottomBar.h; sourceTree = "<group>"; };
+		E3B8AB7B28A38202007CB139 /* YBIBVideoBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBIBVideoBottomBar.m; sourceTree = "<group>"; };
 		F2A1E10DD2C568E5493980E0 /* Pods-YBImageBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBImageBrowserDemo.release.xcconfig"; path = "Target Support Files/Pods-YBImageBrowserDemo/Pods-YBImageBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -381,8 +381,8 @@
 				23F26ACE22D7206900C27C21 /* YBIBVideoTopBar.m */,
 				23F26AD022D7208700C27C21 /* YBIBVideoActionBar.h */,
 				23F26AD122D7208700C27C21 /* YBIBVideoActionBar.m */,
-				E327F449289A0CBE00924EFB /* YBIBVideoBottomBar.h */,
-				E327F448289A0CBE00924EFB /* YBIBVideoBottomBar.m */,
+				E3B8AB7A28A38202007CB139 /* YBIBVideoBottomBar.h */,
+				E3B8AB7B28A38202007CB139 /* YBIBVideoBottomBar.m */,
 			);
 			path = Video;
 			sourceTree = SOURCE_ROOT;
@@ -777,7 +777,7 @@
 				23ABA2B722D0BAB700535F6A /* YBIBImageData.m in Sources */,
 				23F26AD222D7208700C27C21 /* YBIBVideoActionBar.m in Sources */,
 				23F26ACC22D71FB200C27C21 /* YBIBVideoView.m in Sources */,
-				E327F44A289A0CBE00924EFB /* YBIBVideoBottomBar.m in Sources */,
+				E3B8AB7C28A38202007CB139 /* YBIBVideoBottomBar.m in Sources */,
 				23CC350E22DC855A0037018B /* TestImageBrowser.m in Sources */,
 				23CC34D722DC252C0037018B /* MainController.m in Sources */,
 				23CC34F622DC593F0037018B /* TestEController.m in Sources */,

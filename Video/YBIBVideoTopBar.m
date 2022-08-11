@@ -26,8 +26,8 @@
     if (self) {
         [self addSubview:self.cancelButton];
         [self addSubview:self.titleLabel];
-        [self addSubview:self.downloadButton];
-        [self addSubview:self.deleteButton];
+//        [self addSubview:self.downloadButton];
+//        [self addSubview:self.deleteButton];
     }
     return self;
 }
@@ -37,8 +37,8 @@
     CGFloat buttonWidth = 44;
     self.cancelButton.frame = CGRectMake(20, 0, buttonWidth, self.bounds.size.height);
     self.titleLabel.frame = CGRectMake(80, 0, self.bounds.size.width - 160, self.bounds.size.height);
-    self.deleteButton.frame = CGRectMake(self.bounds.size.width - 130, 0, 44, 44);
-    self.downloadButton.frame = CGRectMake(self.deleteButton.frame.origin.x - 64, 0, 44, 44);
+//    self.deleteButton.frame = CGRectMake(self.bounds.size.width - 130, 0, 44, 44);
+//    self.downloadButton.frame = CGRectMake(self.deleteButton.frame.origin.x - 64, 0, 44, 44);
 }
 
 #pragma mark - public
