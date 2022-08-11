@@ -105,12 +105,12 @@
 
 //删除
 -(void)deleteAction{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kDeleteVideoNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDeleteVideoNotification object:nil];
 }
 
 //下载
 -(void)downloadAction{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kDownloadVideoNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDownloadVideoNotification object:nil];
 }
 
 
